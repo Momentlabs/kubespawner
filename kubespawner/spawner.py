@@ -1235,6 +1235,8 @@ class KubeSpawner(Spawner):
     del _deprecated_name
 
     def _expand_user_properties(self, template):
+
+        self.log.info("Expanding user properites. user: {}, servername: {} ".format(self.user.name, self.name))
         # Make sure username and servername match the restrictions for DNS labels
         # Note: '-' is not in safe_chars, as it is being used as escape character
         safe_chars = set(string.ascii_lowercase + string.digits)
